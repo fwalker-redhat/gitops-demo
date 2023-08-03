@@ -14,19 +14,3 @@ A01.WORLD=
     )
   )
 )
-
-TEC.WORLD=
-  (DESCRIPTION =
-    (ADDRESS_LIST =
-        (ADDRESS =
-          (COMMUNITY = TEC.WORLD)
-          (PROTOCOL = TCP)
-          (HOST = columbus)
-          (PORT = 1521)
-        )
-    )
-    (CONNECT_DATA =
-       (SID = TEC)
-        (GLOBAL_NAME = TEC.WORLD)
-        )
-)
