@@ -2,5 +2,5 @@ image:
   repository: image-registry.openshift-image-registry.svc:5000/pipeline-library/arbksa-cloud-cbis
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "$TAG"
 images: []
