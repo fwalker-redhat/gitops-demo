@@ -2,4 +2,4 @@ image:
   repository: image-registry.openshift-image-registry.svc:5000/pipeline-library/xct-arbksapexxct-cloud
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.1.0-1645-87aa8d84"
+  tag: "1.17aa8d84"
