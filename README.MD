@@ -4,7 +4,7 @@
 
 This demonstrates using OpenShift GitOps to manage both the OpenShift Cluster configuration and User workloads. The `default` OpenShift GitOps instance, deployed by default to the `openshift-gitops` namespace, should be used solely for Cluster configurations since it is configured to allow managing of the majority of cluster scoped resources. 2 additional instances are deployed for User workloads to illustrate multi-tenancy strategies: a single instance that relies heavily on ArgoCDs RBAC model along with ArgoCD Projects to provide multi-tenancy, and an instance dedicated to a single group which provides better isolation but at the cost of consuming additional resources.
 
-![ArgoCD Deployments](./documentation/images/argocd-deployments.png)
+![ArgoCD Deployments](documentation/images/argocd-deployments.png)
 
 ## Instructions
 
@@ -23,7 +23,7 @@ This demonstrates using OpenShift GitOps to manage both the OpenShift Cluster co
     2. `multitenant-gitops`: Creates an ArgoCD instance through the GitOps operator that has 3 tenant projects (`tenant1`, `tenant2`, `tenant3`). Each project allows deployment to namespaces that begin with the corresponding tenant name, i.e. for `tenant1` any namespaces beginning with `tenant1-`. Each project is manageable by members of a group in the format of \<tenant-name\>-admin and members of a group in the format of \<tenant-name\>-devs can view applications and logs and synchronize applications. This illustrates using ArgoCD Projects to logically separate applications by tenant (multi-tenancy) by leveraging ArgoCD's RBAC model
     3. `team-gitops`: Creates an ArgoCD instance through the GitOps operator that has a single tenant, `tenant4`, with a single project. This illustrates having a dedicated ArgoCD instance per tenant as an alternative to a multi-tenant single instance.
 
-![Bootstrapped Apps](./documentation/images/bootstrapped-apps.png)
+![Bootstrapped Apps](documentation/images/bootstrapped-apps.png)
 
 ## Preparing Container Images for Argo Rollouts and ImageUpdater
 
@@ -33,8 +33,8 @@ The `Containerfile` for each can be found under `demo-image/<version>/Containerf
 
 ### Version 1.0:
 
-![Bootstrapped Apps](./documentation/images/sample-app-v1.png)
+![Bootstrapped Apps](documentation/images/sample-app-v1.png)
 
 ### Version 2.0:
 
-![Bootstrapped Apps](./documentation/images/sample-app-v2.png)
+![Bootstrapped Apps](documentation/images/sample-app-v2.png)
