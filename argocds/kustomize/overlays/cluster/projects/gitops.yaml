@@ -14,6 +14,8 @@ spec:
   namespaceResourceWhitelist:
     - group: 'argoproj.io'
       kind: '*'
+    - group: 'rbac.authorization.k8s.io'
+      kind: 'RoleBinding'
   roles:
     - description: Administrators for the GitOps Instances
       name: gitops-admin
