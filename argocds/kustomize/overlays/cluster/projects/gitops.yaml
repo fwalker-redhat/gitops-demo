@@ -5,6 +5,8 @@ metadata:
 spec:
   description: 'GitOps Instance Administration'
   destinations:
+    - namespace: 'openshift-gitops'
+      server: '*'
     - namespace: 'multitenant-gitops'
       server: '*'
     - namespace: 'team-gitops'
