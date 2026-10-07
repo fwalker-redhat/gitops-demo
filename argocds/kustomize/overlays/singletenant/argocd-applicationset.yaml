@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1beta1
+kind: ArgoCD
+metadata:
+  name: gitops
+spec:
+  applicationSet:
+    enabled: false
+    webhookServer:
+      ingress:
+        enabled: false
+      route:
+        enabled: false

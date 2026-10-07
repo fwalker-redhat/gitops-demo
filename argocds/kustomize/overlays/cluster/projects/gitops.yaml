@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: gitops-instances
+spec:
+  description: 'GitOps Instance Administration'
+  destinations:
+    - namespace: 'multitenant-gitops'
+      server: '*'
+    - namespace: 'team-gitops'
+      server: '*'
+  namespaceResourceWhitelist:
+    - group: 'argoproj.io/v1beta1'
+      kind: '*'
+  roles:
+    - description: Administrators for the GitOps Instances
+      name: gitops-admin
+      groups:
+        - gitops-admins
+      policies:
+        - 'p, proj:gitops-instances:gitops-admin, applications, *, gitops-instances/*, allow'
+        - 'p, proj:gitops-instances:gitops-admin, applicationsets, *, gitops-instances/*, allow'
+        - 'p, proj:gitops-instances:gitops-admin, clusters, *, gitops-instances/*, allow'
+        - 'p, proj:gitops-instances:gitops-admin, repositories, *, gitops-instances/*, allow'
+        - 'p, proj:gitops-instances:gitops-admin, logs, *, gitops-instances/*, allow'
+        - 'p, proj:gitops-instances:gitops-admin, exec, *, gitops-instances/*, allow'
+  sourceRepos:
+    - 'https://github.com/fwalker-redhat/gitops-demo.git'

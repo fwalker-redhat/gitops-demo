@@ -1,0 +1,34 @@
+{{- range .Values.namespaces }}
+  {{- if and .enabled .admingroup }}
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ .name }}-admin
+  namespace: {{ .name }}
+subjects:
+  - kind: Group
+    apiGroup: rbac.authorization.k8s.io
+    name: {{ .admingroup }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: admin
+  {{- end }}
+  {{- if and .enabled .usergroup }}
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ .name }}-user
+  namespace: {{ .name }}
+subjects:
+  - kind: Group
+    apiGroup: rbac.authorization.k8s.io
+    name: {{ .usergroup }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: edit
+  {{- end }}
+{{- end }}

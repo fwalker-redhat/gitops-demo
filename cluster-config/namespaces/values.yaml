@@ -1,0 +1,25 @@
+namespaces:
+- enabled: true
+  name: tenant1-dev
+  labels:
+    argocd.argoproj.io/managed-by: multitenant-gitops
+  admingroup: tenant1-admins
+  usergroup: tenant1-users
+- enabled: true
+  name: tenant2-dev
+  labels:
+    argocd.argoproj.io/managed-by: multitenant-gitops
+  admingroup: tenant2-admins
+  usergroup: tenant2-users
+- enabled: true
+  name: tenant3-dev
+  labels:
+    argocd.argoproj.io/managed-by: multitenant-gitops
+  admingroup: tenant3-admins
+  usergroup: tenant3-users
+- enabled: true
+  name: tenant4-dev
+  labels:
+    argocd.argoproj.io/managed-by: team-gitops
+  admingroup: tenant4-admins
+  usergroup: tenant4-users

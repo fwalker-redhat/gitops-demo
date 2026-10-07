@@ -1,0 +1,6 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: tenant3-devs
+users:
+  - tenant3-dev

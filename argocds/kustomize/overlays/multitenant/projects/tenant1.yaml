@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: tenant1
+spec:
+  description: 'Tenant 1 Workloads'
+  sourceRepos:
+    - 'https://github.com/fwalker-redhat/gitops-demo.git'
+  destinations:
+    - namespace: 'tenant1-*'
+      server: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  

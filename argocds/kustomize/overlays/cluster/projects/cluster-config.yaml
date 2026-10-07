@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: cluster-config
+spec:
+  description: 'GitOps Instance Administration'
+  destinations:
+    - namespace: '*'
+      server: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  roles:
+    - description: Administrators for the OpenShift Cluster
+      groups:
+        - cluster-admins
+      name: cluster-admin
+      policies:
+        - 'p, proj:cluster-config:cluster-admin, applications, *, cluster-config/*, allow'
+        - 'p, proj:cluster-config:cluster-admin, applicationsets, *, cluster-config/*, allow'
+        - 'p, proj:cluster-config:cluster-admin, clusters, *, cluster-config/*, allow'
+        - 'p, proj:cluster-config:cluster-admin, repositories, *, cluster-config/*, allow'
+        - 'p, proj:cluster-config:cluster-admin, logs, *, cluster-config/*, allow'
+        - 'p, proj:cluster-config:cluster-admin, exec, *, cluster-config/*, allow'
+  sourceRepos:
+    - 'https://github.com/fwalker-redhat/gitops-demo.git'

@@ -1,0 +1,6 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: tenant4-admins
+users:
+  - tenant4-admin
