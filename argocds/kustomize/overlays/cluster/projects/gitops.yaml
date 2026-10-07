@@ -12,6 +12,8 @@ spec:
     - namespace: 'team-gitops'
       server: '*'
   namespaceResourceWhitelist:
+    - group: 'argoproj.io/v1alpha1'
+      kind: '*'
     - group: 'argoproj.io/v1beta1'
       kind: '*'
   roles:
