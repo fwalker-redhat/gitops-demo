@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/hydrate: normal
+  name: multitenant-gitops
+spec:
+  destination:
+    namespace: multitenant-gitops
+    server: 'https://kubernetes.default.svc'
+  project: gitops-instances
+  source:
+    kustomize:
+      namespace: openshift-gitops
+    path: argocds/kustomize/overlays/multitenant
+    repoURL: 'https://github.com/fwalker-redhat/gitops-demo.git'
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+      - Delete=false

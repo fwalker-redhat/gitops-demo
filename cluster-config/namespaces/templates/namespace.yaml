@@ -5,9 +5,11 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: {{ .name }}
+    {{- if .labels }}
   labels:
-    {{- range $key, $value := .labels }}
+      {{- range $key, $value := .labels }}
     {{ $key }}: {{ $value }}
+      {{- end }}
     {{- end }}
   {{- end }}
 {{- end -}}
