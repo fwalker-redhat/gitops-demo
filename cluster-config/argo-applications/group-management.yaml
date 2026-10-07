@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/hydrate: normal
+  name: group-management
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: 'https://kubernetes.default.svc'
+  project: cluster-config
+  source:
+    path: cluster-config/groups
+    repoURL: 'https://github.com/fwalker-redhat/gitops-demo.git'
+    targetRevision: main
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: false
+      selfHeal: true
