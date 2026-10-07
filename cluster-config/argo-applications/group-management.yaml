@@ -18,3 +18,6 @@ spec:
       enabled: true
       prune: false
       selfHeal: true
+    syncOptions:
+      - Delete=confirm
+      - ApplyOutOfSyncOnly=true

@@ -17,4 +17,5 @@ spec:
     targetRevision: main
   syncPolicy:
     syncOptions:
-      - Delete=false
+      - Delete=confirm
+      - ApplyOutOfSyncOnly=true
