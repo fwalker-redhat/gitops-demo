@@ -3,7 +3,6 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/hydrate: normal
-    argocd.argoproj.io/sync-wave: "0"
   name: bootstrap-app-of-apps
 spec:
   destination:
@@ -11,7 +10,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: cluster-config
   source:
-    path: bootstrap
+    path: bootstrap/argo-applications
     repoURL: 'https://github.com/fwalker-redhat/gitops-demo.git'
     targetRevision: main
   syncPolicy:
