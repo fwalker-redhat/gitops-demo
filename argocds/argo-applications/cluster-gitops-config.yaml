@@ -17,6 +17,10 @@ spec:
     repoURL: 'https://github.com/fwalker-redhat/gitops-demo.git'
     targetRevision: main
   syncPolicy:
+    automated:
+      enabled: true
+      prune: false
+      selfHeal: true
     syncOptions:
       - Delete=confirm
       - ApplyOutOfSyncOnly=true
