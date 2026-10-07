@@ -13,7 +13,7 @@ spec:
   source:
     path: argocds/kustomize/overlays/singletenant
     repoURL: 'https://github.com/fwalker-redhat/gitops-demo.git'
-    targetRevision: main
+    targetRevision: namespaces-dev-only
   syncPolicy:
     syncOptions:
       - Delete=confirm

@@ -13,7 +13,7 @@ spec:
   source:
     path: cluster-config/groups
     repoURL: 'https://github.com/fwalker-redhat/gitops-demo.git'
-    targetRevision: main
+    targetRevision: namespaces-dev-only
   syncPolicy:
     automated:
       enabled: true
