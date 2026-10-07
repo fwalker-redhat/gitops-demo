@@ -11,7 +11,6 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: gitops-instances
   source:
-    kustomize: {}
     path: argocds/kustomize/overlays/multitenant
     repoURL: 'https://github.com/fwalker-redhat/gitops-demo.git'
     targetRevision: main
