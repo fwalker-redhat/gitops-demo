@@ -3,7 +3,7 @@ kind: AppProject
 metadata:
   name: cluster-config
 spec:
-  description: 'GitOps Instance Administration'
+  description: 'Cluster Configuration Administration'
   destinations:
     - namespace: '*'
       server: '*'
