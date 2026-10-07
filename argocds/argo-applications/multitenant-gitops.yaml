@@ -13,7 +13,7 @@ spec:
   source:
     path: argocds/kustomize/overlays/multitenant
     repoURL: 'https://github.com/fwalker-redhat/gitops-demo.git'
-    targetRevision: namespaces-dev-only
+    targetRevision: namespaces-all
   syncPolicy:
     syncOptions:
       - Delete=confirm

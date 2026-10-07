@@ -13,7 +13,7 @@ spec:
   source:
     path: cluster-config/namespaces
     repoURL: 'https://github.com/fwalker-redhat/gitops-demo.git'
-    targetRevision: namespaces-dev-only
+    targetRevision: namespaces-all
   syncPolicy:
     automated:
       enabled: true
