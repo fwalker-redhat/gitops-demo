@@ -3,6 +3,7 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/hydrate: normal
+    argocd.argoproj.io/sync-wave: "0"
   name: cluster-gitops-config
 spec:
   destination:

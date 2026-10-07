@@ -3,15 +3,15 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/hydrate: normal
-    argocd.argoproj.io/sync-wave: "1"
-  name: namespace-management
+    argocd.argoproj.io/sync-wave: "0"
+  name: cluster-config-app-of-apps
 spec:
   destination:
     namespace: openshift-gitops
     server: 'https://kubernetes.default.svc'
   project: cluster-config
   source:
-    path: cluster-config/namespaces
+    path: cluster-config/argo-applications
     repoURL: 'https://github.com/fwalker-redhat/gitops-demo.git'
     targetRevision: main
   syncPolicy:
