@@ -1,5 +1,13 @@
 namespaces:
 - enabled: true
+  name: multitenant-gitops
+  admingroup: gitops-admins
+  usergroup:
+- enabled: true
+  name: team-gitops
+  admingroup: gitops-admins
+  usergroup:
+- enabled: true
   name: tenant1-dev
   labels:
     argocd.argoproj.io/managed-by: multitenant-gitops
