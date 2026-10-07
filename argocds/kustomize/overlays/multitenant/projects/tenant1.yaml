@@ -4,12 +4,35 @@ metadata:
   name: tenant1
 spec:
   description: 'Tenant 1 Workloads'
-  sourceRepos:
-    - 'https://github.com/fwalker-redhat/gitops-demo.git'
   destinations:
-    - namespace: 'tenant1-*'
+    - namespace: '*'
       server: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
   namespaceResourceWhitelist:
     - group: '*'
       kind: '*'
-  
+  roles:
+    - description: Tenant 1 Administrators
+      groups:
+        - tenant1-admins
+      name: tenant1-admin
+      policies:
+        - 'p, proj:tenant1:tenant1-admin, applications, *, tenant1/*, allow'
+        - 'p, proj:tenant1:tenant1-admin, applicationsets, *, tenant1/*, allow'
+        - 'p, proj:tenant1:tenant1-admin, clusters, *, tenant1/*, allow'
+        - 'p, proj:tenant1:tenant1-admin, repositories, *, tenant1/*, allow'
+        - 'p, proj:tenant1:tenant1-admin, logs, *, tenant1/*, allow'
+        - 'p, proj:tenant1:tenant1-admin, exec, *, tenant1/*, allow'
+    - description: Tenant 1 Users
+      groups:
+        - tenant1-users
+      name: tenant1-user
+      policies:
+        - 'p, proj:tenant1:tenant1-user, applications, get, tenant1/*, allow'
+        - 'p, proj:tenant1:tenant1-user, applications, sync, tenant1/*, allow'
+        - 'p, proj:tenant1:tenant1-user, repositories, get, tenant1/*, allow'
+        - 'p, proj:tenant1:tenant1-user, logs, *, tenant1/*, allow'
+  sourceRepos:
+    - 'https://github.com/fwalker-redhat/gitops-demo.git'

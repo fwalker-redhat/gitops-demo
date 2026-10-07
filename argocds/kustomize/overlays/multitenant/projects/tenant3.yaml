@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: tenant3
+spec:
+  description: 'Tenant 3 Workloads'
+  destinations:
+    - namespace: '*'
+      server: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  roles:
+    - description: Tenant 3 Administrators
+      groups:
+        - tenant3-admins
+      name: tenant3-admin
+      policies:
+        - 'p, proj:tenant3:tenant3-admin, applications, *, tenant3/*, allow'
+        - 'p, proj:tenant3:tenant3-admin, applicationsets, *, tenant3/*, allow'
+        - 'p, proj:tenant3:tenant3-admin, clusters, *, tenant3/*, allow'
+        - 'p, proj:tenant3:tenant3-admin, repositories, *, tenant3/*, allow'
+        - 'p, proj:tenant3:tenant3-admin, logs, *, tenant3/*, allow'
+        - 'p, proj:tenant3:tenant3-admin, exec, *, tenant3/*, allow'
+    - description: Tenant 3 Users
+      groups:
+        - tenant3-users
+      name: tenant3-user
+      policies:
+        - 'p, proj:tenant3:tenant3-user, applications, get, tenant3/*, allow'
+        - 'p, proj:tenant3:tenant3-user, applications, sync, tenant3/*, allow'
+        - 'p, proj:tenant3:tenant3-user, repositories, get, tenant3/*, allow'
+        - 'p, proj:tenant3:tenant3-user, logs, *, tenant3/*, allow'
+  sourceRepos:
+    - 'https://github.com/fwalker-redhat/gitops-demo.git'
