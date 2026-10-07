@@ -1,0 +1,2 @@
+FROM registry.access.redhat.com/hi/nginx:latest
+COPY index.html /usr/share/nginx/html/
