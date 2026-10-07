@@ -3,6 +3,8 @@ kind: Kustomization
 namespace: team-gitops
 resources:
   - ../../base
+  - rolebindings/openshift-gitops-controller-argocds.yaml
+  - rolebindings/openshift-gitops-controller-appprojects.yaml
   - projects/tenant4.yaml
 patches:
   - path: argocd-applicationset.yaml
