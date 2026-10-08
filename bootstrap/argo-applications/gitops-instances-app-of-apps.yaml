@@ -13,7 +13,7 @@ spec:
   source:
     path: argocds/argo-applications
     repoURL: 'https://github.com/fwalker-redhat/gitops-demo.git'
-    targetRevision: namespaces-all
+    targetRevision: rollouts-start
   syncPolicy:
     automated:
       enabled: true

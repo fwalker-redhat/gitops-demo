@@ -4,14 +4,14 @@ metadata:
   annotations:
     argocd.argoproj.io/hydrate: normal
     argocd.argoproj.io/sync-wave: "1"
-  name: team-gitops
+  name: argo-rollout-manager
 spec:
   destination:
-    namespace: team-gitops
+    namespace: openshift-gitops
     server: 'https://kubernetes.default.svc'
   project: gitops-instances
   source:
-    path: argocds/kustomize/overlays/singletenant
+    path: argorollouts/rollout-manager
     repoURL: 'https://github.com/fwalker-redhat/gitops-demo.git'
     targetRevision: rollouts-start
   syncPolicy:

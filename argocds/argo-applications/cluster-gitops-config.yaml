@@ -15,7 +15,7 @@ spec:
       namespace: openshift-gitops
     path: argocds/kustomize/overlays/cluster
     repoURL: 'https://github.com/fwalker-redhat/gitops-demo.git'
-    targetRevision: namespaces-all
+    targetRevision: rollouts-start
   syncPolicy:
     automated:
       enabled: true
